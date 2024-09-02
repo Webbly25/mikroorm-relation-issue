@@ -74,11 +74,6 @@ export class GeneratedRecord extends Document {
 	}
 }
 
-export type DocumentVersionExtraInputs = {
-	type: DocumentType;
-	versionNumber: number;
-};
-
 @Entity({
 	discriminatorColumn: 'type',
 	discriminatorMap: {
