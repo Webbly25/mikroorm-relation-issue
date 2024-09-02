@@ -11,7 +11,6 @@ import {
 	Property,
 	Ref
 } from '@mikro-orm/core';
-import { TsMorphMetadataProvider } from '@mikro-orm/reflection';
 
 export enum DocumentType {
 	TRAINING_DOCUMENT = 'TRAINING_DOCUMENT',
@@ -119,7 +118,7 @@ export class DocumentVersionReview {
 	@PrimaryKey()
 	id: number;
 
-	@ManyToOne()
+	@ManyToOne(() => DocumentVersion, { ref: true })
 	documentVersion: Ref<DocumentVersion>;
 
 	@Property()
@@ -128,7 +127,6 @@ export class DocumentVersionReview {
 
 async function main() {
 	const orm = await MikroORM.init({
-		metadataProvider: TsMorphMetadataProvider,
 		dbName: ':memory:',
 		entities: [
 			Document,
