@@ -1,5 +1,3 @@
-import { MikroORM } from '@mikro-orm/sqlite';
-
 import {
 	Collection,
 	Entity,
@@ -11,6 +9,7 @@ import {
 	Property,
 	Ref
 } from '@mikro-orm/core';
+import { MikroORM } from '@mikro-orm/sqlite';
 
 export enum DocumentType {
 	TRAINING_DOCUMENT = 'TRAINING_DOCUMENT',
@@ -83,9 +82,9 @@ export type DocumentVersionExtraInputs = {
 @Entity({
 	discriminatorColumn: 'type',
 	discriminatorMap: {
-		[DocumentType.TRAINING_DOCUMENT]: 'TrainingDocument',
-		[DocumentType.FORM]: 'Form',
-		[DocumentType.GENERATED_RECORD]: 'GeneratedRecord'
+		[DocumentType.TRAINING_DOCUMENT]: 'TrainingDocumentVersion',
+		[DocumentType.FORM]: 'FormVersion',
+		[DocumentType.GENERATED_RECORD]: 'GeneratedRecordVersion'
 	}
 })
 export abstract class DocumentVersion {
