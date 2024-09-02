@@ -11,8 +11,11 @@
 	"author": "",
 	"license": "ISC",
 	"description": "",
+	"dependencies": {
+		"@mikro-orm/core": "^6.3.7",
+		"@mikro-orm/sqlite": "^6.3.7"
+	},
 	"devDependencies": {
-		"@mikro-orm/cli": "^6.3.7",
 		"@types/node": "^22.5.2",
 		"eslint": "^9.9.1",
 		"eslint-config-prettier": "^9.1.0",
@@ -20,12 +23,5 @@
 		"prettier": "^3.3.3",
 		"ts-node": "^10.9.2",
 		"typescript": "^5.5.4"
-	},
-	"dependencies": {
-		"@mikro-orm/core": "^6.3.7",
-		"@mikro-orm/reflection": "^6.3.7",
-		"@mikro-orm/seeder": "^6.3.7",
-		"@mikro-orm/sqlite": "^6.3.7",
-		"fastify": "^4.28.1"
 	}
 }
