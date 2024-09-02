@@ -45,3 +45,7 @@ keys/*
 # Generated test output
 /test/generated
 temp/
+
+# Sqlite database
+*.sqlite
+*.db
