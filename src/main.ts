@@ -138,18 +138,16 @@ async function main() {
 	});
 	await orm.schema.refreshDatabase();
 
-	const em = orm.em.fork();
-
 	{
 		// create a document
 		const doc = new TrainingDocument('Training Document');
-		await em.persistAndFlush(doc);
-		em.clear();
+		await orm.em.persistAndFlush(doc);
+		orm.em.clear();
 	}
 
 	{
 		// get the newest approved version of a document
-		const doc = await em.findOneOrFail(Document, { id: 1 });
+		const doc = await orm.em.findOneOrFail(Document, { id: 1 });
 		const version = await doc.versions
 			.loadItems({
 				where: { reviews: { $every: { approved: true } } },
